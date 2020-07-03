@@ -6,11 +6,11 @@
 
 - [1 Introduction](#1-introduction)
 - [2 Dependencies](#2-dependencies)
-- [3 Load the interface](#3-cargar-la-interfaz)
-- [4 Importing data](#4-importación-de-datos)
-- [5 Metrics or Statistics](#5-métricas-o-estadísticas)
-- [6 Presentation of graphics](#6-presentación-de-gráficos)
-- [References](#referencias)
+- [3 Load the interface](#3-load-the-interface)
+- [4 Importing data](#4-importing-data)
+- [5 Metrics or Statistics](#5-metrics-or-statistics)
+- [6 Presentation of graphics](#6-presentation-of-graphicss)
+- [References](#references)
 
 <br/>
 
