@@ -21,6 +21,7 @@
 <br/>
 
 In order to make the different R language routines accessible to all users for statistical analysis of networks and their graphs without the need for programming knowledge, a graphical user interface (GUI) was programmed. The **IAEN** package is a tool that provides a graphical user interface (GUI) which is implemented through the **GTK+** toolkit implemented in the **RGtk2** package and is stored in the GitHub repository. It allows you to manage data and use different types of tools for the analysis of ecological networks, as well as visualization and edition of graphics. There is a large repertoire of packages implemented in R that emphasize ecological network analysis for adjacent binary, weighted, and bipartite matrices. R also has a set of packages that allow to analyze and visualize different types of networks in general, each one has its different ways of managing databases.
+
 Because of the aforementioned, this interface is made up of various packages stored in R that emphasize ecological networks and networks in general, allowing us to make use of functions easily and interactively without the user fully using the programming language of R. Basic and usual methods are used in which the package that is being used is specified in each process in order to spread the use of R and its packages, where if you want to do a more specific analysis you can consult the different functions included in the environment R. This document is intended to assist the user in the operation of the interface to make proper use of the different tools it provides. Each of the windows that comprise it is also described. In general, the user can import databases in the "*File*" tab, perform network analysis in the "*Statistics*" window, create binary networks and perform small world functions in the "*Simulations*" window and execute graphics in the “*Graphs*” window.
 
 <br/>
@@ -100,13 +101,20 @@ Different tabs grouped by type of functions are shown in the menu bar, such as t
 <br/>
 
 Before loading a weighted matrix, the structure in which the data is required to be organized must be taken into account. This structure is based on the input arguments required in the **enaR::pack** function to create a network class object and in order to load and display it in the interactive interface, the following specifications are required:
+
 -- Equal adjacency matrix names for rows and columns, preferably non-numeric and without spaces.
+
 -- Contain numerical values.
+
 -- Avoid empty cells.
+
 -- Include a column specifying the living nodes (1) and the non-living nodes (0).
+
 -- Input, export, output, respiration, biomass and live vectors must be placed vertically to the adjacency matrix and in that order.
 -- The column “*Outputs*” is the sum of respiration and exports, this vector is optional.
+
 -- The adjacent matrix, the vector of entries, exports and the vector of living items are mandatory, the others may or may not be considered. In case of not considering them, include a vector of zeros to avoid empty values.
+
 –- The data should be ordered in the following way: the adjacent matrix is placed first, then the following columns the inputs (Inputs), exports (Exports), outputs (Outputs), respiration (Respiration), biomass (Biomass) and indicator of living (1) or not living (0) nodes (Living).
 
 <br/>
@@ -122,13 +130,20 @@ Before loading a weighted matrix, the structure in which the data is required to
 <br/>
 
 To be able to import a weighted matrix within the interface, you have to select the * `Data> Import> Weighted tabs `*, following these steps a window as in Figure 2 will appear, where the elements that make it up are a group of sections that have the purpose of showing that the loaded vectors are in the proper order. The functionality of the window is summarized in the following steps:
+
 -- Search for the file through the "*Import*" button, where you can choose files in Excel (.xls), Excel delimited by commas (.csv) or text (.txt) formats.
 -- Name the new object, by default Weighted.
+
 -- The first vectors of the matrix will appear in the "*Nodes*" section.
+
 -- In automatic the rest of the vectors are accommodated in each of the sections.
+
 -- "*Matrix*", "*Input*" and "*Export*" are mandatory, the other data are optional.
+
 -- Verify with the “*Check*” button that all the vectors are imported correctly, in case of being incorrect a pop-up window will be shown with the list of errors found, then check the data input format to correct the details.
+
 -- The balancing tab will be activated only if the matrix and the remaining vectors are not balanced, if it is the case, select the type of balancing that you want to execute, this function is taken from the **enaR::balance** function.
+
 -- Finally select the "*Ok*" button so that different objects are created and can be used when necessary, the data will be shown in the "*Data*" tab.
 
 <br/>
