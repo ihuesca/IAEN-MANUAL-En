@@ -1,4 +1,4 @@
-# **IAEN: Interfaz Gráfica de Usuario para Introducción al Análisis de Redes Ecológicas**
+# **IAEN: Graphical User Interface for Introduction to Ecological Network Analysis**
 
 <br/>
 
@@ -14,57 +14,52 @@
 
 <br/>
 
-## **1 Introducción**
+## **1 Introduction**
 
 
 
 <br/>
 
-Con la finalidad de hacer accesibles a todos los usuarios a las distintas rutinas del lenguaje R para el análisis estadístico de redes y sus gráficas sin la necesidad de un conocimiento en programación se programó una interface gráfica para el usuario (GUI). 
-
-El paquete **IAEN** es una herramienta que proporciona una interfaz gráfica de usuario (GUI) la cual está implementada mediante el kit de herramientas **GTK+** implementado en el paquete **RGtk2** y está almacenado en el repositorio de GitHub. Permite gestionar datos y realizar diferentes tipos de herramientas empleados en el análisis de redes ecológicas, así como de visualización y edición de gráficos. Existe un gran repertorio de paquetes implementados en R que hacen hincapié en el análisis de redes ecológicas para matrices adyacentes binarias, ponderadas y bipartitas. R también cuenta con un conjunto de paquetes que permiten analizar y visualizar diferentes tipos de redes en general, cada uno tiene sus diferentes formas de gestionar las bases de datos. 
-
-Por lo mencionado anteriormente, ésta interfaz está integrada por diversos paquetes almacenados en R que hacen énfasis en redes ecológicas y redes en general, permitiéndonos hacer uso de funciones de manera fácil e interactiva sin que el usuario emplee por completo el lenguaje de programación de R. Se emplean métodos básicos y usuales en el que se especifica en cada proceso el paquete que se está utilizando con la finalidad de difundir el uso de R y sus paqueterías, donde si se desea hacer un análisis más específico puede consultar las diferentes funciones incluidas en el entorno R. 
-
-Este documento está destinado a auxiliar al usuario en el funcionamiento de la interfaz para hacer uso adecuado de las diferentes herramientas que proporciona. También se describe cada una de las ventanas que la conforman. En general el usuario puede importar bases de datos en la pestaña de “*File*”, efectuar análisis de redes en la ventana de “*Statistics*”, crear redes binarias y realizar funciones de mundos pequeños en la ventana de “*Simulations*” y ejecutar gráficos en la ventana de “*Graphs*”. 
+In order to make the different R language routines accessible to all users for statistical analysis of networks and their graphs without the need for programming knowledge, a graphical user interface (GUI) was programmed. The **IAEN** package is a tool that provides a graphical user interface (GUI) which is implemented through the **GTK+** toolkit implemented in the **RGtk2** package and is stored in the GitHub repository. It allows you to manage data and use different types of tools for the analysis of ecological networks, as well as visualization and edition of graphics. There is a large repertoire of packages implemented in R that emphasize ecological network analysis for adjacent binary, weighted, and bipartite matrices. R also has a set of packages that allow to analyze and visualize different types of networks in general, each one has its different ways of managing databases.
+Because of the aforementioned, this interface is made up of various packages stored in R that emphasize ecological networks and networks in general, allowing us to make use of functions easily and interactively without the user fully using the programming language of R. Basic and usual methods are used in which the package that is being used is specified in each process in order to spread the use of R and its packages, where if you want to do a more specific analysis you can consult the different functions included in the environment R. This document is intended to assist the user in the operation of the interface to make proper use of the different tools it provides. Each of the windows that comprise it is also described. In general, the user can import databases in the "*File*" tab, perform network analysis in the "*Statistics*" window, create binary networks and perform small world functions in the "*Simulations*" window and execute graphics in the “*Graphs*” window.
 
 <br/>
 
-## **2 Dependencias**
+## **2 Dependencies**
 
 <br/>
 
-La lista de dependencias que se requieren para que la interfaz se ejecute correctamente se enlista en la Tabla 1, así como el motivo para la que fueron utilizados. Cabe mencionar que existe una alta dependencia de los paquetes **enaR**, **cheddar** y **bipartite** debido a que son los paquetes que más hacen énfasis en la temática de redes ecológicas, además de que contienen funciones de interés para nuestro objetivo. Sólo algunas funciones fueron implementadas. Respecto a la realización de gráficos algunos de éstos fueron realizados mediante las funciones por defecto de su paquete, mientras que otros fueron efectuados empleando los paquetes **ggplot2**, **gplots** y **ggraph** para mejorar en algunos casos su resolución. 
+The list of dependencies that are required for the interface to run correctly is presented in Table 1, as well as the reason for which they were used. It is worth mentioning that there is a high dependence on **enaR**, **cheddar** and **bipartite** packages. This is because they are the packages that most emphasize the theme of ecological networks, in addition to containing functions of interest to our objective. Only some functions were implemented. Regarding graphics, some of these were done using the default functions of their package, while others were done using the **ggplot2**, **gplots** and **ggraph** packages to improve their resolution in some cases. 
 
 <br/>
 
-Tabla 1. Lista de paquetes requeridos 
+Table 1. List of required packages 
 
 | Paquetería                        | Descripción                                           |
 | --------------------------------- | ----------------------------------------------------- |
-| RGtk2 (Lawrence and Temple, 2010) | Herramientas para la creación de interfaces gráficas  |
+| RGtk2 (Lawrence and Temple, 2010) | Tools for creating graphical interfaces               |
 | cairoDevice (Lawrence, 2017)      |                                                       |
 |                                   |                                                       |
-| enaR (Lau et al., 2017)           | Funciones para análisis redes ecológicas              |
+| enaR (Lau et al., 2017)           | Functions for ecological network analysis             |
 | cheddar (Hudson et al., 2018)     |                                                       |
 | bipartite (Dormann et al., 2008)  |                                                       |
 |                                   |                                                       |
-| readxl (Wickham and Bryan, 2018)  | Importación y exportación de datos                    |
+| readxl (Wickham and Bryan, 2018)  | Data import and export                                |
 | writexl (Ooms, 2018)              |                                                       |
 |                                   |                                                       |
-| network (Butts, 2015)             | Funciones para análisis de redes en general           |
+| network (Butts, 2015)             | Functions for general network analysis                |
 | igraph (Csardi and Nepusz, 2006)  |                                                       |
 | sna (Butts, 2016)                 |                                                       |
 | tnet (Opsahl, 2009)               |                                                       |
 |                                   |                                                       |
-| ggplot2 (Wickham, 2016)           | Funciones para la edición y visualización de gráficos |
+| ggplot2 (Wickham, 2016)           | Functions for editing and displaying graphics         |
 | ggraph (Pedersen, 2018)           |                                                       |
 | gplots (Warnes et al., 2016)      |                                                       |
 | scales (Wickham, 2017)            |                                                       |
 |                                   |                                                       |
-| reshape (Wickham, 2007)           | Reestructura de datos                                 |
+| reshape (Wickham, 2007)           | Data restructuring                                    |
 |                                   |                                                       |
-| pryr (Wickham, 2018)              | Crear enlaces activos                                 |
+| pryr (Wickham, 2018)              | Create active links                                   |
 
 <br/>
 
@@ -72,7 +67,7 @@ Tabla 1. Lista de paquetes requeridos
 
 <br/>
 
-Una vez que se llevó a cabo el proceso de instalación del paquete y verificado que se haya realizado exitosamente, los pasos que prosiguen son los siguientes: en primer lugar hay que cargar el paquete y posteriormente utilizar la función correspondiente para poder visualizar la interfaz. La instalación sólo se realiza una vez en cada versión instalada de R o en su caso R-Studio, así como para cargar el paquete sólo se hace una vez en cada espacio de trabajo abierto, tal como se muestra a continuación:
+Once the package installation process has been carried out and verified that it has been carried out successfully, the steps that follow are the following: firstly, you must load the package and then use the corresponding function to display the interface. The installation is only done once in each installed version of R or in the case of using R-Studio, as well as to load the package it is only done once in each open workspace, as shown below:
 
 <br/>
 
@@ -91,79 +86,58 @@ Figura 1. Interfaz gráfica de usuario
 
 <br/>
 
-En la Figura 1 se ilustra la estructura interactiva de la interfaz gráfica cuando ha sido cargada en la consola de R-Studio donde se observa que los elementos que la componen son una barra de menú, una barra de accesos directos para opciones rápidas de importación y exportación de datos, un conjunto de pestañas que incluye una presentación, una pestaña llamada ”*Data*” donde se pueden visualizar los datos que han sido cargados y una pestaña nombrada ”*Result*” donde a través de sub-pestañas se muestran las diferentes salidas de los análisis realizados.
-
-En la barra de menú se muestran diferentes pestañas agrupadas por el tipo de funciones tales como la pestaña de ”*File*” que contiene funciones de importación y exportación de datos. La pestaña de ”*Statistics*”, contiene funciones de análisis de datos para las diferentes tipos de redes (binaria, ponderada y bipartita). La pestaña de ”*Simulation*” muestra una ventana con opciones para crear diferentes tipos de redes alimenticias y realizar funciones utilizadas en mundos pequeños. La pestaña de ”*Graphs*” muestra una gama de gráficos que se pueden realizar para los diferentes tipos de redes. Por último la pestaña de ”*Help*” proporciona información general del paquete.
-
-<br/>
-
-## **4 Importación de datos**
+Figure 1 illustrates the interactive structure of the graphical interface when it has been loaded in the R-Studio console, where it can be seen that its component elements are a menu bar, a shortcut bar for quick import options, and data export, a set of tabs that includes a presentation, a tab called "*Data*" where you can view the data that has been loaded and a tab named "*Result*" where, through sub-tabs the different outputs of the analysis performed are shown.
+Different tabs grouped by type of functions are shown in the menu bar, such as the "*File*" tab that contains data import and export functions. The "*Statistics*" tab contains data analysis functions for the different types of networks (binary, weighted and bipartite). The "*Simulation*" tab shows a window with options to randomly create different types of food webs and perform functions used on small worlds. The "*Graphs*" tab shows a range of graphs that can be made for different types of networks. Finally, the "*Help*" tab provides general information on the package.
 
 <br/>
 
-- ***Matriz adyacente de una red ponderada***
+## **4 Importing data**
 
 <br/>
 
-Antes de cargar una matriz ponderada hay que tener en cuenta la estructura en la que se requiere que estén organizados los datos. Dicha estructura está basada en los argumentos de entrada requeridos en la función **enaR::pack** para crear un objeto de clase red y para poder cargarla y visualizarla en la interfaz interactiva se requieren las siguientes especificaciones:
-
--- Nombres de matriz de adyacencia iguales para filas y columnas, preferentemente no numérica y sin espacios.
-
--- Contener valores numéricos.
-
--- Evitar celdas vacías.
-
--- Incluir una columna que especifique los nodos vivos (1) y los no vivos (0).
-
--- Vectores de entradas, exportaciones, salidas, respiraciones, biomasas y vivos deben ser colocadas verticalmente a la matriz de adyacencia y en ese orden.
-
--- La columna "*Outputs*" es la suma de respiraciones y exportaciones, este vector es opcional.
-
--- La matriz adyacente, el vector de entradas, exportaciones y el vector de vivos son obligatorios, los demás pueden o no considerarse. En caso de no considerarlos incluir un vector de ceros para evitar valores vacíos.
-
---En el orden de los datos se coloca primero la matriz adyacente, posteriormente en las columnas siguientes las entradas (Inputs), exportaciones (Exports), salidas (Outputs), respiraciones (Respiration), biomasas (Biomass) e indicador de nodos vinos o no vivos (Living).
+- ***Adjacent matrix of a weighted network***
 
 <br/>
 
+Before loading a weighted matrix, the structure in which the data is required to be organized must be taken into account. This structure is based on the input arguments required in the **enaR::pack** function to create a network class object and in order to load and display it in the interactive interface, the following specifications are required:
+-- Equal adjacency matrix names for rows and columns, preferably non-numeric and without spaces.
+-- Contain numerical values.
+-- Avoid empty cells.
+-- Include a column specifying the living nodes (1) and the non-living nodes (0).
+-- Input, export, output, respiration, biomass and live vectors must be placed vertically to the adjacency matrix and in that order.
+-- The column “*Outputs*” is the sum of respiration and exports, this vector is optional.
+-- The adjacent matrix, the vector of entries, exports and the vector of living items are mandatory, the others may or may not be considered. In case of not considering them, include a vector of zeros to avoid empty values.
+–- The data should be ordered in the following way: the adjacent matrix is placed first, then the following columns the inputs (Inputs), exports (Exports), outputs (Outputs), respiration (Respiration), biomass (Biomass) and indicator of living (1) or not living (0) nodes (Living).
 
+<br/>
 
 <p align="center">
     <img src="https://user-images.githubusercontent.com/45604687/63484106-30710e00-c464-11e9-9d10-77c0e348e454.PNG" alt="Image" width="300" height="200" />
 </p>
 
-
-
 <p align="center">
- Figura 2. Ventana para importar una matriz ponderada
+ Figure 2. Window to import a weighted matrix
 </p>
 
 <br/>
 
-Para poder importar una matriz ponderada dentro de la interfaz se tiene que seleccionar las pestañas *`Data> Import> Weighted`*, siguiendo éstos pasos aparecerá una ventana como la Figura 2, donde los elementos que la conforman son un grupo de secciones que tienen la finalidad de mostrar que los vectores cargados estén en el orden adecuado. La funcionalidad de la ventana está resumida en los siguientes pasos:
-
--- Buscar el archivo a través del botón "*Import*", donde se podrá elegir archivos con formato Excel (.xls), Excel delimitado por comas (.csv) o texto (.txt).
-
--- Poner nombre al nuevo objeto, por defecto Weighted.
-
--- Los primeros vectores de la matriz aparecerán en la sección de "*Nodes*".
-
--- En automático se acomoda el resto de vectores en cada una de las secciones.
-
--- "*Matrix*", "*Input* "y "*Export*" son obligatorias, las demás entradas son opcionales.
-
--- Verificar con el botón "*Check*" que todos los vectores están importados correctamente, en caso de ser incorrecto se mostrará una ventana emergente con la lista de errores encontrados, posteriormente revise el formato de entrada de los datos para corregir los detalles.
-
--- La pestaña de balanceo se activará sólo en caso de que la matriz y los vectores restantes no estén balanceados, de ser el caso seleccionar el tipo de balanceo que se quiera ejecutar, dicha función está retomada de la función **enaR::balance.**
-
--- Por último seleccionar el botón "*Ok*" para que diferentes objetos sea creados y puedan ser utilizados cuando sea necesario, a su vez se imprimirán los datos en la pestaña de "*Data*".
+To be able to import a weighted matrix within the interface, you have to select the * `Data> Import> Weighted tabs `*, following these steps a window as in Figure 2 will appear, where the elements that make it up are a group of sections that have the purpose of showing that the loaded vectors are in the proper order. The functionality of the window is summarized in the following steps:
+-- Search for the file through the "*Import*" button, where you can choose files in Excel (.xls), Excel delimited by commas (.csv) or text (.txt) formats.
+-- Name the new object, by default Weighted.
+-- The first vectors of the matrix will appear in the "*Nodes*" section.
+-- In automatic the rest of the vectors are accommodated in each of the sections.
+-- "*Matrix*", "*Input*" and "*Export*" are mandatory, the other data are optional.
+-- Verify with the “*Check*” button that all the vectors are imported correctly, in case of being incorrect a pop-up window will be shown with the list of errors found, then check the data input format to correct the details.
+-- The balancing tab will be activated only if the matrix and the remaining vectors are not balanced, if it is the case, select the type of balancing that you want to execute, this function is taken from the **enaR::balance** function.
+-- Finally select the "*Ok*" button so that different objects are created and can be used when necessary, the data will be shown in the "*Data*" tab.
 
 <br/>
 
-- ***Matriz adyacente de una red no ponderada***
+- ***Adjacent matrix of an unweighted network***
 
 <br/>
 
-Respecto a la matriz no ponderada las especificaciones son diferentes, entre ellas se destaca que su estructura es binaria donde los valores que la conforman deben ser numéricos y únicamente se deben incluir valores con ceros y unos donde cero representa ausencia de interacción depredador-presa y uno representa presencia de interacción depredador-presa. Se tiene que evitar valores vacíos y se debe de incluir nombres de filas y columnas donde dichos nombres de preferencia no deben tener espacios y deben ser simétricos. 
+Regarding the unweighted matrix, the specifications are different, among them it is highlighted that its structure is binary where the values that make it up must be numerical and only values with zeros and ones, where zero represents absence of predator-prey interaction and one when an interaction exists, must be included. Empty values should be avoided and row and column names should be included that should not have spaces and the matrix should be symmetric.
 
 <br/>
 
@@ -172,22 +146,21 @@ Respecto a la matriz no ponderada las especificaciones son diferentes, entre ell
 </p>
 
 <p align="center">
- Figura 3. Ventana para importar una matriz no ponderada
+ Figure 3. Window to import an unweighted matrix
 </p>
 
 <br/>
 
-Para importar una matriz adyacente no ponderada o dicho de otra forma una matriz binaria, se debe seleccionar las pestañas *`Data> Import> Unweighted`* desde la interfaz, al hacer esto se abrirá una ventana como la de la Figura 3. El botón de ”*Import*” tiene la funcionalidad de abrir una ventana para buscar el archivo que se desea importar, donde el formato a elegir puede ser de Excel (.xls), Excel delimitado por comas (.csv) o texto (.txt).
-
-Se puede cambiar nombre de la matriz, por defecto Unweighted, dicho nombre servirá para nombrar diferentes objetos que se emplearán en los análisis posteriores y para identificarla dentro de la interfaz. Una vez seleccionado un archivo se activará el botón ”*Check*” el cual tiene la finalidad de revisar el cumplimiento de las especificaciones anteriormente mencionadas donde si no cumple al menos una, aparecerá una ventana emergente para mostrar los errores que se hayan encontrado, de ser éste el caso se tiene que revisar y corregir los datos de entrada.
-
-<br/>
-
-- ***Matriz adyacente de una red bipartita***
+To import an adjacent unweighted matrix or, in other words, a binary matrix, you must select the * `Data> Import> Unweighted `* tabs from the interface. Doing so a window like the one in Figure 3 will open. The "*Import*" button has the functionality of opening a window to search for the file to be imported, where the format to choose can be Excel (.xls), Comma delimited Excel (.csv) or text (.txt).
+You can change the name of the matrix, by default Unweighted, this name will serve to name different objects that will be used in subsequent analyzes and to identify it within the interface. Once a file is selected, the "*Check*" button will be activated, which has the purpose of reviewing compliance with the aforementioned specifications.,  If it does not meet at least one of the restrictions, a pop-up window will appear to show the errors that have been found, if this is the case, the file must be reviewed and corrected.
 
 <br/>
 
-Los pasos a seguir para importar una matriz bipartita son muy parecidos a los de una matriz binaria, ya que las especificaciones son: incluir nombres de filas y columnas preferentemente sin espacios, evitar valores vacíos y contener valores numéricos ya sean binarios (ceros y unos) o ponderados. La única diferencia es que puede ser de dimensión *pxq* ya que éste tipo redes no necesariamente tienen que ser simétricas debido a que no representan interacciones tróficas.
+- ***Adjacent matrix of a bipartite network***
+
+<br/>
+
+The steps to follow to import a bipartite matrix are very similar to those of a binary matrix, since the specifications are: include names of rows and columns preferably without spaces, avoid empty values and contain numerical values either binary (zeros and ones) or weighted. The only difference is that it can be of dimension pxq since this type of networks does not necessarily have to be symmetrical because they do not represent trophic interactions.
 
 <br/>
 
@@ -196,16 +169,16 @@ Los pasos a seguir para importar una matriz bipartita son muy parecidos a los de
 </p>
 
 <p align="center">
- Figura 4. Ventana para importar una matriz bipartita
+ Figure 4. Window to import a bipartite matrix
 </p>
 
 <br/>
 
-Por otra parte, para importar una matriz adyacente bipartita se deben seleccionar las pestañas *`Data> Import> Bipartite`*. La ventana resultante (Figura 4) es semejante a la de una matriz no ponderada, sólo que el nombre por defecto es Bipartite y las especificaciones que evalúa el botón ”*Check*” son diferentes. El botón ”*Import*” tiene la misma funcionalidad de mostrar una ventana para buscar el archivo que se desea cargar con opciones de formato de Excel (.xls), Excel delimitado por comas (.csv) o texto (.txt). Al hacer clic en "*Aceptar*", se crearán los objetos necesarios para poder realizar los análisis que se soliciten posteriormente y se visualizarán los datos en la interfaz en la pestaña de ”*Data*”.
+On the other hand, to import an adjacent bipartite matrix, you must select the * `Data> Import> Bipartite `* tabs. The resulting window (Figure 4) is similar to that of an unweighted matrix, except that the default name is Bipartite and the specifications evaluated by the "*Check*" button are different. The "Import" button has the same functionality of showing a window to find the file you want to load with Excel (.xls), Excel delimited by commas (.csv) or text (.txt) options. By clicking on "*Accept*", the necessary objects will be created to carry out the analyzes that are requested later and the data will be displayed on the interface in the "Data" tab.
 
 <br/>
 
-## **5 Métricas o Estadísticas**
+## **5 Metrics or Statistics**
 
 <br/>
 
@@ -214,16 +187,14 @@ Por otra parte, para importar una matriz adyacente bipartita se deben selecciona
 </p>
 
 <p align="center">
- Figura 5. Estadísticas para una red ponderada
+ Figure 5. Statistics for a weighted network
 </p>
 
 <br/>
 
-Para realizar diferentes estadísticas de una red ponderada se tiene que seleccionar las pestañas *`Statistics> Weighted`*, posteriormente aparecerá la ventana de la Figura 5. La pestaña de Weighted se activará solo cuando se haya importado en la interfaz una matriz adyacente de una red ponderada. La ventana está dividida en tres secciones, la sección de ”*General*” que contiene métricas de la red como lo son atributos y análisis de flujos, la sección de ”*Topology*” que contiene un conjunto de centralidades diferentes y el apartado de ”*Ecological Indices*” que contiene indicadores específicos para una red trófica. La Pestaña ”*Name*” muestra el nombre de todas las redes ponderadas que han sido cargadas en la interfaz, se tiene que seleccionar la red con la que se desea realizar los análisis.
-
-Algunos atributos y las centralidades de closeness, betweenness y degree fueros utilizadas empleando el paquete **tnet**, mientras que las otras centralidades y las demás funciones que hacen hincapié en análisis de redes ecológicas se realizan mediante el paquete **enaR**. Para conocer la descripción de cada resultado favor de ver la documentación de los paquetes **tnet** (Opsahl, 2009) y **enaR** (Lau et al., 2017).
-
-Por último, contiene un conjunto de botones para seleccionar y deseleccionar todas las categorías incluidas, y un botón de aceptar y cancelar la corrida de los análisis. Al hacer clic en aceptar aparecerá un ícono de carga en la parte inferior izquierda de la interfaz con el fin de notificar que algunos análisis pueden requerir largo tiempo de espera, posteriormente se mostrarán los resultados en la ventana de ”*Result*” a través de sub-pestañas.
+To perform different statistics on a weighted network, select the * `Statistics> Weighted `* tabs, then the window shown in Figure 5 will appear. The Weighted tab will be activated only when an adjacent matrix of a weighted network has been imported into the interface. The window is divided into three sections, the "*General*" section that contains network metrics such as attributes and flow analysis, the "Topology" section that contains a set of different centralities and the "*Ecological Indices*" section that contains specific indicators for a trophic network. The "*Name*" tab shows the name of all the weighted networks that have been loaded in the interface, you have to select the network with which you want to carry out the analyzes.
+Some attributes and the centralities of closeness, betweenness and degree were used using the tnet package, while the other centralities and other functions that emphasize ecological network analysis are performed using the **enaR** package. To know the description of each result, please see the documentation of the **tnet** (Opsahl, 2009) and **enaR** packages (Lau et al., 2017).
+Finally, it contains a set of buttons to select and deselect all the categories included, and a button to accept and cancel the analysis. When clicking on accept, a loading icon will appear in the lower left of the interface in order to notify that some analyzes may require a long waiting time, the results will be displayed in the "*Result*" window through sub-tabs.
 
 <br/>
 
@@ -232,16 +203,14 @@ Por último, contiene un conjunto de botones para seleccionar y deseleccionar to
 </p>
 
 <p align="center">
- Figura 6. Estadísticas para una red no ponderada
+ Figure 6. Statistics for an unweighted network
 </p>
 
 <br/>
 
-Para realizar diferentes estadísticos de una red no ponderada hay que seleccionar las pestañas *`Statistics> Unweighted`* dentro de la interfaz, cabe mencionar que dicha pestaña solo se activa cuando se ha importado una matriz adyacente de éste tipo. La ventana está dividida en tres secciones ”*General*”, ”*Topology*” y ”*Ecological Indices*” (Figura 6). Para el cálculo de atributos se emplearon los paquetes **cheddar**, **igraph** y **network**. En atributos se agregaron tres funciones sencillas, una que calcula el porcentaje de especies herbívoras, otra que muestra el porcentaje de especies que están incluidas en loops o ciclos el cual fue obtenido identificando los nodos incluidos en la diagonal de la multiplicación de la misma matriz *n* veces y por último la proporción de especies que se alimentan de presas de más de un nivel trófico.
-
-En el apartado de ”*Topology*” se muestra un grupo de centralidades así como la función de reachability, las centralidades de betweenness, closeness y degree fueron utilizadas emplendo el paquete **igraph**, mientras que las demás se utilizaron empleando el paquete **sna**. La sección de ”*Ecological Indices*” contiene los cálculos del nivel trófico e indicadores de omnivoría para ello se empleó paquete cheddar, se incluyó un indicador de omnivoría mencionado por Goldwasser and Roughgarden (1993) el cual se basa en la media de las desviaciones estándar de las longitudes de cadena de cada especie hasta una especie basal.
-
-La pestanña de ”*Name*” muestra todas las matrices binarias que han sido cargadas a la interfaz de las cuales se tiene que seleccionar alguna para realizar los análisis. Para ver las especificaciones de cada resultado favor de consultar la documentación de **igraph** (Csardi and Nepusz, 2006), **sna** (Butts, 2016), **cheddar** (Hudson et al., 2018) y **network** (Butts, 2015). De la misma forma que en la ventana de la Figura 6 se incluyen botones de seleccionar y deseleccionar las casillas y un botón de aceptar y cancelar, en el que al hacer clic en el botón de aceptar se incluirá un ícono en la parte inferior izquierda que indica que el programa está ejecutando los algoritmos correspondientes y al finalizar aparecerán los resultados en sub-pestañas en el apartado de ”*Result*”.
+To perform different statistics for an unweighted network, select the * `Statistics> Unweighted `* tabs within the interface, it should be mentioned that this tab is only activated when an adjacent matrix of this type has been imported. The window is divided into three sections "*General*", "*Topology*" and "*Ecological Indices*" (Figure 6). For the calculation of attributes the **cheddar**, **igraph** and network packages were used. In attributes, three simple functions were added, one that calculates the percentage of herbivorous species, another that shows the percentage of species that are included in loops or cycles, which was obtained by identifying the nodes included in the diagonal of the multiplication of the same matrix n times and finally the proportion of species that feed on prey of more than one trophic level.
+In the "*Topology*" section, a group of centralities is shown as well as the reachability function. The centralities of betweenness, closeness and degree are calculated  using the **igraph** package, while the others by using the **sna** package. The section of "*Ecological Indices*" contains the trophic level calculations and omnivory indicators. For this, the **cheddar** package was used. An omnivory indicator mentioned by Goldwasser and Roughgarden (1993) was included, which is based on the mean of the standard deviations of the chain lengths of each species to a basal species.
+The "*Name*" tab shows all the binary matrices that have been loaded into the interface, from which one must be selected to perform the analyzes. To see the specifications of each result, please consult the documentation of **igraph** (Csardi and Nepusz, 2006), **sna** (Butts, 2016), **cheddar** (Hudson et al., 2018) and **network** (Butts, 2015). In the same way that the window of Figure 6 includes buttons to select and deselect the boxes and an accept and cancel button, in which clicking the accept button will include an icon in the lower left that indicates that the program is executing the corresponding algorithms and at the end the results will appear in sub-tabs in the "*Result*" section.
 
 <br/>
 
@@ -250,14 +219,13 @@ La pestanña de ”*Name*” muestra todas las matrices binarias que han sido ca
 </p>
 
 <p align="center">
- Figura 7. Estadísticas para una red bipartita
+ Figure 7. Statistics for a bipartite network
 </p>
 
 <br/>
 
-Para efectuar estadísticos de una red bipartita hay que seleccionar las pestañas *`Statistics>Bipartite`*, dicha pestaña se activará solo cuando se haya importado en la interfaz una matriz adyacente de una red bipartita. Al hacer clic en las pestañas anteriores apare-cerá una ventana como la de la Figura 7. La ventana está seccionada en dos partes, la primera contiene atributos generales de la red y la segunda llamada ”*Topology*” contiene funciones más específicas, ambos apartados incluyen funciones del paquete **bipartite** (Dormann et al., 2008) por lo que para conocer el contenido de cada indicador favor de revisar la descripción de las funciones en su documentación.
-
-De la misma forma que en las ventanas de las Figuras 6 y 7 se incluye una pestaña de ”*Name*” para seleccionar la red con la que se desea ejecutar las funciones y se incluyen botones de seleccionar y deseleccionar las casillas y un botón de aceptar y cancelar con las mismas funcionalidades.
+To perform statistics for a bipartite network, select the * `Statistics> Bipartite `* tabs, this tab will be activated only when an adjacent matrix of a bipartite network has been imported into the interface. Clicking on the previous tabs, a window like the one in Figure 7 will appear. The window is divided into two parts, the first contains general attributes of the network and the second called "*Topology*" contains more specific functions, both sections include functions of the **bipartite** package (Dormann et al., 2008), so to know the content of each indicator, please review the description of the functions in its documentation.
+In the same way that in the windows of Figures 6 and 7, a “*Name*” tab is included to select the network with which you want to execute the functions, and buttons are included to select and deselect the boxes and a button to accept and cancel with the same functionalities.
 
 <br/>
 
@@ -266,36 +234,29 @@ De la misma forma que en las ventanas de las Figuras 6 y 7 se incluye una pesta�
 </p>
 
 <p align="center">
- Figura 8. Ventana de simulación
+ Figure 8. Simulation window
 </p>
 
 <br/>
 
+To carry out different simulation functions, you have to select the *`Simulations> Simulations`* tabs and thus visualize the window shown in Figure 8. The window contains two sections, one to create random food webs and another to execute functions used in small world networks. It has three methods to create food webs, the random model, the cascade model and the niche model, from which the attributes and centralities can be calculated, in turn this procedure can be performed n times and as a result a matrix will be obtained randomly and average attributes and centralities of the n repetitions, a matrix is also included with the number of times an interaction appeared at a specific position.
+Food web models have as argument the number of nodes or species, the value of connectivity on a scale of 0 to 1 and a value of percentage of tolerance that refers to the acceptance interval for connectivity, that is, in each simulation the function only includes networks that are in that interval of the parameter so that the parameter is consistent, as mentioned in Williams and Martinez (2000), by default 3%.
+The random model (Williams and Martinez, 2000) is based on the Erdos and Rényi (1960) model, which consists of creating a network with n vertices representing the number of species (S), where all the links between species have the same probability P of existing equal to the connectivity (C) of the empirical network. In the cascade model (Cohen and Newman (1985); Williams and Martinez (2000)), each species has a probability P = 2CS / (S-1) of consuming another species with lower niche values. The model has a strict hierarchy of feeding since it prohibits the presence of cannibalism and cycles.
+The niche model Williams and Martinez (2000) assigns to each species a niche value (ni) in the interval [0,1]. Each species feeds on the species that are in the range of niche values (ri) obtained from the beta distribution, which are placed using a value of center ci, allowing the presence of cannibalism and loops. The center ci of the feeding range ri is a uniform random number in the interval ri/2 and the minimum value between ni and 1-ri/2. To ensure that each network contains at least one basal species, the species with the smallest value has a rank value equal to zero.
+The algorithms of the three previously mentioned models were implemented in the graphical interface through their own algorithms, where functions are added that avoid the presence of nodes with double zeros and / or disconnected.
+On the other hand, the second section includes the calculation of the characteristic path length (L) and the cluster coefficient (C), both parameters are used to test whether or not a network behaves like a small world (Watts and Strogatz, 1998). For the creation of the random graphs, the **igraph::sample_gnm** function was used, which generates graphs according to the Erdos-Rényi model, for the cluster coefficient the **igraph::transitivity** function was used and for the average length of the shortest path the **igraph::mean_distance** function, all three functions belong to the **igraph** package (Csardi and Nepusz, 2006).
+The required arguments in the graphical interface to obtain the L and C parameters are the number of nodes, the number of links and the number of repetitions that you want to perform to optimize the result. As a result, a table is obtained with the values of L and C of each of the repetitions as well as the average. Clicking on the accept button will display the results in the "*Result*" tab through sub-tabs either of food web creation or small world parameters.
 Para realizar diferentes funciones de simulación se tienen que seleccionar las pestañas de *`Simulations> Simulations`* y así visualizar la ventana mostrada en la Figura 8. La ventana contiene dos secciones una para crear redes alimenticias aleatorias y otra para ejecutar funciones empleadas en redes de mundos pequeños. Posee tres métodos para crear redes alimenticias, el modelo aleatorio, el modelo de cascada y el modelo de nicho, de los cuales se puede calcular los atributos y centralidades, a su vez se puede realizar éste procedimiento *n* veces y como resultado se obtendrá una matriz aleatoria y el promedio de atributos y centralidades de las *n* repeticiones, también se incluye una matriz con el número de veces que una interacción apareció en una posición específica.
 
-Los modelos de redes alimenticias poseen como argumento el número de nodos o especies, el valor de la conectividad en una escala de 0 a 1 y un valor de porcentaje de tolerancia que hace referencia al intervalo de aceptación para la conectividad, es decir, en cada simulación la función sólo incluye redes que estén en ese intervalo del parámetro con la finalidad de que el parámetro sea consistente, tal como se menciona en Williams and Martinez (2000), por defecto 3%.
+<br/>
 
-El modelo aleatorio (Williams and Martinez, 2000) estaá basado en el modelo de Erdos and Rényi (1960), el cual consiste en crear una red con n vértices representando el número de especies (*S*), donde todos los enlaces entre especies tienen la misma probabilidad *P* de existir igual a la conectividad (*C*) de la red empírica. En el modelo de cascada (Cohen and Newman (1985); Williams and Martinez (2000)), cada especie tiene una probabilidad *P=2CS/(S-1)* de consumir otra especie con valores de nicho más bajos. El modelo tiene una jerarquía estricta de alimentación ya que prohíbe la presencia de canibalismo y ciclos.
-
-El modelo de nicho Williams and Martinez (2000) asigna a cada especie un valor de nicho (*ni*) en el intervalo [0,1]. Cada especie se alimenta de las especies que se encuentran en el rango de valores de nicho (*ri*) obtenidos de la distribución beta, los cuales son colocados mediante un valor de centro *ci*, permitiendo la presencia de canibalismo y bucles. El centro *ci* del rango de alimentación *ri* es un número aleatorio uniforme en el intervalo de *ri/2* y el valor mínimo entre *ni* y *1-ri/2*. Para garantizar que cada red contenga al menos una especie basal, la especie con el valor de ni maás pequeño tiene valor de rango igual a cero.
-
-Los algoritmos de los tres modelos anteriormente mencionados fueron implementados en la interfaz gráfica a través de algoritmos propios, donde se agregan funciones que evitan la presencia de nodos con dobles ceros y/o desconectados.
-
-Por otro lado, en la segunda sección se incluye el cálculo de la longitud del camino característico (*L*) y el coeficiente de cluster (*C*), ambos parámetros son empleados para contrastar si una red se comporta o no como un mundo pequeño (Watts and Strogatz, 1998). Para la creación de los grafos aleatorio se empleó la función **igraph::sample_gnm** que genera grafos de acuerdo con el modelo de Erdos-Renyi, para el coeficiente de cluster se utilizó la función **igraph::transitivity** y para la longitud promedio del camino más corto la función **igraph::mean_distance**, las tres funciones pertenecen al paquete **igraph** (Csardi and Nepusz, 2006).
-
-Los argumentos requeridos en la interfaz gráfica para obtener los parámetros *L* y *C* son el número de nodos, el número de enlaces y el número de repeticiones que se desea realizar para optimizar el resultado. Como resultado se obtiene una tabla con los valores de *L* y *C* de cada una de las repeticiones así como el promedio. Al hacer clic en el botón de aceptar aparecerán los resultados en la pestaña de ”*Result*” a través de sub-pestañas ya sea de la creación de redes alimenticias o de los parámetros de mundos pequeños.
+## **6 Presentation of graphics**
 
 <br/>
 
-## **6 Presentación de gráficos**
-
-<br/>
-
-Cada gráfico contiene una ventana con un apartado de opciones que contiene diferentes parámetros básicos que se pueden alterar para la realización de los mismos, los más comunes es el tamaño de letra y de nodo, así como el color de letra y de los nodos. Varios gráficos tienen también por argumento el especificar si se quiere emplear el nombre original de los nodos o si se desea sustituir por números y en algunos casos sólo se puede utilizar números para identificar el nodo o únicamente puntos, depende del tipo de gráfico que se desea realizar, esto con la finalidad de no saturar el gráfico y que se pueda apreciar mejor los resultados.
-
-La cantidad de parámetros que se muestran en cada ventana dependerá del tipo de gráfico que se desee realizar. Además, contiene una pestaña que muestra las diferentes redes que han sido cargadas en la interfaz, si se desea correr un gráfico específicamente de una red no ponderadas entonces sólo aparecerán los nombres de ese tipo de red. En la parte inferior derecha de cada ventana se incluyen los botones de aceptar y cancelar.
-
-Se puede abrir una ventana de un gráfico seleccionando el menú de gráficos luego el tipo de red y por último el tipo de gráfico a realizar. Inicialmente las pestañas aparecen inactivas, para activarla se tiene que importar una red del mismo tipo. El menú de gráficos contiene el nombre de la función original de la paquetería que fue empleada con la finalidad de que el usuario pueda identificar la función correspondiente y saber que procedimiento se está llevando a cabo, dichos paquetes ya se mencionaron anteriormente. Todas las ventanas de los gráficos tienen en la parte superior izquierda, un par de botones un botón de guardar y otro de salir, también incluye una pestaña para seleccionar el formato en el que se desea guardar, entre los formatos disponibles se encuentran tiff, jpeg, png y eps.
+Each graph contains a window with a section of options that contains different basic parameters that can be altered to carry them out, the most common being the font and node size, as well as the font and node color. Several graphs also have the argument of specifying whether you want to use the original name of the nodes or if you want to replace them with numbers and in some cases you can only use numbers to identify the node or only points, depending on the type of graph you want perform, this in order not to saturate the graph and to better appreciate the results.
+The number of parameters displayed in each window will depend on the type of graph you want to make. In addition, it contains a tab that shows the different networks that have been loaded in the interface, if you want to run a graph specifically of an unweighted network then only the names of that type of network will appear. Accept and cancel buttons are included at the bottom right of each window.
+You can open a graph window by selecting the graph menu then the type of network and finally the type of graph to be made. Initially the tabs appear inactive, to activate it you have to import a network of the same type. The graphics menu contains the name of the original function of the package that was used in order for the user to be able to identify the corresponding function and know what procedure is being carried out. These packages have already been mentioned above. All the graphics windows have, on the upper left, a couple of buttons, a save button and an exit button, it also includes a tab to select the format in which you want to save, among the available formats are tiff, jpeg , png and eps.
 
 <br/>
 
@@ -303,13 +264,12 @@ Se puede abrir una ventana de un gráfico seleccionando el menú de gráficos lu
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | ![P11HeatMapCluster](https://user-images.githubusercontent.com/45604687/63556730-877dee00-c50b-11e9-984c-2920147f6cc5.PNG) |                                                              |
 
-Figura 9: Gráficos para cualquier tipo de red
+Figure 9: Graphics for any type of network
 
 <br/>
 
-En la Figura 9 se muestran los gráficos que se pueden realizar para cualquier tipo de red importada. Para la red se empleó el paquete **ggraph** que contiene funciones para graficar redes a través de **ggplot2**, donde si la matriz es bipartita los nodos se ordenan diferente. Las pestañas para realizar una red es *`Graph>Network> gplot`*. Los otros dos gráficos son mapas de calor que tienen la finalidad de representar gráficamente la matriz adyacente en el que se tienen que seleccionar las pestañas *`Graph> Heat map>ggplot/heatmap.2`* para poderlos realizar.
-
-Uno de los argumentos para realizar un mapa de calor es si se desea incluir cluster para filas y columnas o no. En el primer caso del mapa de calor con cluster se empleó la función headmap.2 del paquete **gplot**, además por defecto si la matriz adyacente es binaria emplea la distancia de Jaccard y el método de Ward, mientras que si la matriz adyacente es ponderada se utiliza la distancia euclidiana y el método de Ward. En el caso de que sólo se desee graficar el mapa de calor, se emplea el paquete **ggplot2**.
+Figure 9 shows the graphs that can be made for any type of imported network. For the network, the ggraph package was used, which contains functions to graph networks through **ggplot2**, where if the matrix is bipartite, the nodes are ordered differently. The tabs to make a network is * `Graph> Network> gplot`*. The other two graphs are heat maps that are intended to graphically represent the adjacent matrix in which the *`Graph> Heat map> ggplot / heatmap.2`* tabs must be selected in order to perform them.
+One of the arguments to make a heat map is if you want to include cluster for rows and columns or not. In the first case of the heat map with a cluster, the headmap.2 function of the gplot package was used, also by default if the adjacent matrix is binary, it uses the Jaccard distance and the Ward method, while if the adjacent matrix is weighted, uses Euclidean distance and Ward's method. In case you only want to graph the heatmap, the **ggplot2** package is used.
 
 <br/>
 
@@ -317,11 +277,11 @@ Uno de los argumentos para realizar un mapa de calor es si se desea incluir clus
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | ![P6WebByLevel](https://user-images.githubusercontent.com/45604687/63556945-46d2a480-c50c-11e9-8c81-94857157c617.PNG) |                                                              |
 
-Figura 10. Gráficos para una red no ponderada
+Figure 10. Graphics for an unweighted network
 
 <br/>
 
-En la Figura 10 se muestran los gráficos que se pueden realizar para una red ponderada. Los gráficos de la red ordenada con respecto a alguna centralidad y mediante los niveles tróficos fueron empleados mediante la función por defecto del paquete **cheddar** uno mediante la función **cheddar::PlotNPS** y otro mediante la función **cheddar::PlotWebByLevel**, las pestañas para realizarlos son *`Graphs> Unweighted Matrix> Centrality> PlotNPS`* y *`Graphs> Unweighted Matrix> Web By Level> PlotWeb- ByLevel`* respectivamente. Para el cálculo de spanning tree se empleó la función **igraph::mst** del paquete **igraph** y para graficarlo el paquete **igraph** mediante las pestañas *`Graphs> Unweighted Matrix> Spanning Tree> mst`*.
+Figure 10 shows the graphs that can be made for a weighted network. The graphics of the ordered network with respect to some centrality and through the trophic levels were used through the default function of the **cheddar** package, one through the **cheddar::PlotNPS** function and the other through the **cheddar::PlotWebByLevel** function, the tabs to perform them are *Graphs > Unweighted Matrix> Centrality> PlotNPS* and * `Graphs> Unweighted Matrix> Web By Level> PlotWeb- ByLevel `* respectively. For the calculation of spanning tree the **igraph::mst** function of the igraph package was used and to graph it the igraph package using the * `Graphs> Unweighted Matrix> Spanning Tree> mst `* tabs.
 
 <br/>
 
@@ -330,12 +290,12 @@ En la Figura 10 se muestran los gráficos que se pueden realizar para una red po
 </p>
 
 <p align="center">
- Figura 11. Gráfico de impacto para una red ponderada
+ Figura 11. Impact graph for a weighted network
 </p>
 
 <br/>
 
-En el caso de las redes ponderadas, el único gráfico incluido además de la red y el heatmap para representar la matriz adyacente es un mapa de calor realizado con funciones del paquete **ggplot2** para representa los impactos tróficos totales de una especie sobre otra mediante el algoritmo de Ulanowicz and Puccia (1990) implementado en el paquete **enaR** a través de la función **enaMTI**. Se incluye como argumento el color para valores negativos y positivos donde si los valores estén próximos a cero el color correspondiente se degradará hasta el color blanco. Un ejemplo de éste tipo de gráficos se muestra en la Figura 11 donde para poderlo realizar se tienen que seguir las siguientes pestañas *`Graph> Weighted> Impact> ggplot`*.
+In the case of weighted networks, the only graph included in addition to the network and the heatmap to represent the adjacent matrix is a heat map made with functions from the **ggplot2** package to represent the total trophic impacts of one species on another using the algorithm of Ulanowicz and Puccia (1990) implemented in the **enaR** package through the enaMTI function. The color for negative and positive values is included as an argument where if the values are close to zero, the corresponding color will degrade to white. An example of this type of graph is shown in Figure 11 where, in order to perform it, the following tabs *`Graph> Weighted> Impact> ggplot`* have to be followed.
 
 <br/>
 
@@ -343,13 +303,12 @@ En el caso de las redes ponderadas, el único gráfico incluido además de la re
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | ![P10Modularity2](https://user-images.githubusercontent.com/45604687/63557094-df692480-c50c-11e9-9517-23fd95562f13.PNG) | ![P9Modularity1](https://user-images.githubusercontent.com/45604687/63557108-ee4fd700-c50c-11e9-8b8a-73408bd1dbc6.PNG) |
 
-Figura 12. Gráficos para una red bipartita
+Figura 12. Graphics for a bipartite network
 
 <br/>
 
-En la Figura 12 se muestran los gráficos que se pueden realizar para una red bipartita, el primero es una red de incidencia el cual hace una distinción a través de las figuras para diferencias las filas y columnas de la matriz adyacente, dicho gráfico fue utilizado empleando el paquete **igraph** mediante la función graph.incidence y se puede realizar mediante las pestañas *`Graphs> Bipartite Matrix> Network> graph.incidence`*. La red bipartita se utilizó empleando el paquete **bipartite** ya que es una forma clara de visualizar las ponderaciones en éste tipo de redes y se puede realizar mediante las pestañas *`Graphs> Bipartite Matrix> Plot Web> plotweb`*.
-
-Para la visualización de la modularidad de la red se emplearon dos formas, una mediante un heatmap donde a través de una cuadricula se diferencian los cluster y otra mediante una red con los nodos ordenados respecto al grupo al que pertenecen en el que para diferencias un grupo de otro se utilizó un gama de colores diferentes, ambos gráficos se realizaron empleando el paquete **ggplot2** y se pueden realizar a través de las pestañas *`Graphs> Bipartite Matrix> Modularity> ggplot`*. En la realización de un gráfico de modularidad primero se tiene que hacer el cálculo en la ventana de estadísticas para una red bipartita el cual empleará la función **bipartite::computeModules**. La ventana del gráfico en vez de mostrar una pestaña con los nombres de las redes bipartitas importadas mostrará el *id* de los resultados de modularidad que estén en los resultados. 
+In Figure 12 the graphs that can be made for a bipartite network are shown, the first is an incidence network which makes a distinction through the figures for differences in the rows and columns of the adjacent matrix, this graph was used using the igraph package using the graph.incidence function and can be done using the *`Graphs> Bipartite Matrix> Network> graph.incidence`* tabs. The bipartite network was performed using the bipartite package since it is a clear way to visualize the weights in this type of network and can be done using the *`Graphs> Bipartite Matrix> Plot Web> plotweb`* tabs.
+Two forms were used to visualize the modularity of the network, one through a heatmap where the clusters are differentiated through a grid and the other through a network with the nodes ordered with respect to the group to which they belong, in which for differences a group on the other a different color range was used., Both graphs were made using the **ggplot2** package and can be done through the *`Graphs> Bipartite Matrix> Modularity> ggplot`* tabs. In the realization of a modularity graph, the calculation must first be done in the statistics window for a bipartite network which will use the **bipartite::computeModules** function. The graph window instead of showing a tab with the names of the imported bipartite networks will show the id of the modularity results that are in the results tab.
 
 <br/>
 
