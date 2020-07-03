@@ -4,8 +4,8 @@
 
 **Table of Contents**
 
-- [1 Introduction](#1-introducción)
-- [2 Dependencies](#2-dependencias)
+- [1 Introduction](#1-introduction)
+- [2 Dependencies](#2-dependencies)
 - [3 Load the interface](#3-cargar-la-interfaz)
 - [4 Importing data](#4-importación-de-datos)
 - [5 Metrics or Statistics](#5-métricas-o-estadísticas)
