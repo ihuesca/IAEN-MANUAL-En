@@ -2,15 +2,15 @@
 
 <br/>
 
-**Tabla de contenido**
+**Table of Contents**
 
-- [1 Introducción](#1-introducción)
-- [2 Dependencias](#2-dependencias)
-- [3 Cargar la interfaz](#3-cargar-la-interfaz)
-- [4 Importación de datos](#4-importación-de-datos)
-- [5 Métricas o Estadísticas](#5-métricas-o-estadísticas)
-- [6 Presentación de gráficos](#6-presentación-de-gráficos)
-- [Referencias](#referencias)
+- [1 Introduction](#1-introducción)
+- [2 Dependencies](#2-dependencias)
+- [3 Load the interface](#3-cargar-la-interfaz)
+- [4 Importing data](#4-importación-de-datos)
+- [5 Metrics or Statistics](#5-métricas-o-estadísticas)
+- [6 Presentation of graphics](#6-presentación-de-gráficos)
+- [References](#referencias)
 
 <br/>
 
