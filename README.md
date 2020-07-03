@@ -9,7 +9,7 @@
 - [3 Load the interface](#3-load-the-interface)
 - [4 Importing data](#4-importing-data)
 - [5 Metrics or Statistics](#5-metrics-or-statistics)
-- [6 Presentation of graphics](#6-presentation-of-graphicss)
+- [6 Presentation of graphics](#6-presentation-of-graphics)
 - [References](#references)
 
 <br/>
